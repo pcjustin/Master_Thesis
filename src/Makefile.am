@@ -1,2 +1,2 @@
-bin_PROGRAMS = avi2ts
-avi2ts_SOURCES = avi2ts.c
+bin_PROGRAMS = v4lffmpeg
+v4lffmpeg_SOURCES = v4lffmpeg.c
