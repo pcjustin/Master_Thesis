@@ -11,9 +11,18 @@ AM_INIT_AUTOMAKE("DynamicStreamServer", "0.01")
 AC_PROG_CC
 
 # Checks for libraries.
+AC_CHECK_LIB([avformat],[av_register_all],,AC_MSG_ERROR([You need libavformat (av_register_all) to build $PACKAGE]))
+AC_CHECK_LIB([avdevice],[avdevice_register_all],,AC_MSG_ERROR([You need libavdevice (avdevice_register_all) to build $PACKAGE]))
 
 # Checks for header files.
 AC_CHECK_HEADERS([inttypes.h stdint.h stdlib.h string.h])
+AC_CHECK_HEADERS([libavformat/avformat.h],
+				[],
+				[AC_MSG_ERROR([libavformat headers not found or not usable])])
+AC_CHECK_HEADERS([libavdevice/avdevice.h],
+				[],
+				[AC_MSG_ERROR([libdevice headers not found or not usable])])
+
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
