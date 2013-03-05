@@ -12,16 +12,21 @@ AC_PROG_CC
 
 # Checks for libraries.
 AC_CHECK_LIB([avformat],[av_register_all],,AC_MSG_ERROR([You need libavformat (av_register_all) to build $PACKAGE]))
-AC_CHECK_LIB([avdevice],[avdevice_register_all],,AC_MSG_ERROR([You need libavdevice (avdevice_register_all) to build $PACKAGE]))
+AC_CHECK_LIB([swscale],[sws_getContext],,AC_MSG_ERROR([You need libswscale (sws_getContext) to build $PACKAGE]))
+AC_CHECK_LIB([avutil],[av_rescale_q],,AC_MSG_ERROR([You need libavutil (av_rescale_q) to build $PACKAGE]))
+AC_CHECK_LIB([avcodec],[avcodec_get_name],,AC_MSG_ERROR([You need libavcodec (avcodec_get_name) to build $PACKAGE]))
 
 # Checks for header files.
 AC_CHECK_HEADERS([inttypes.h stdint.h stdlib.h string.h])
 AC_CHECK_HEADERS([libavformat/avformat.h],
 				[],
 				[AC_MSG_ERROR([libavformat headers not found or not usable])])
-AC_CHECK_HEADERS([libavdevice/avdevice.h],
+AC_CHECK_HEADERS([libavutil/mathematics.h],
 				[],
-				[AC_MSG_ERROR([libdevice headers not found or not usable])])
+				[AC_MSG_ERROR([libavutil headers not found or not usable])])
+AC_CHECK_HEADERS([libswscale/swscale.h],
+				[],
+				[AC_MSG_ERROR([libswscale headers not found or not usable])])
 
 
 # Checks for typedefs, structures, and compiler characteristics.
