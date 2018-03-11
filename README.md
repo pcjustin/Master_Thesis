@@ -1,5 +1,4 @@
-# Master_Thesis
-Adaptive Transcoding HTTP Live Streaming System
+# Adaptive Transcoding HTTP Live Streaming System
 
 The project was my master's thesis. The project is `Open Source` for sharing if it can help you improve something.
 
